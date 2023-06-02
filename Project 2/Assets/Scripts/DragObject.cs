@@ -9,6 +9,25 @@ public class DragObject : MonoBehaviour
 
     void Update()
     {
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            Vector3 touchPosition = Input.mousePosition;
+            isDragging = true;
+            offset = touchPosition - transform.position;
+
+                if (isDragging)
+                {
+                    transform.position = new Vector3(transform.position.x, Input.mousePosition.y - offset.y, transform.position.z);
+                }
+
+        }
+
+        if(Input.GetButtonUp("Fire1"))
+        {
+            isDragging = false;
+        }
+
         if (Input.touchCount > 0)
         {
 
@@ -42,7 +61,9 @@ public class DragObject : MonoBehaviour
                     isDragging = false;
                     break;
             }
+
         }
+
     }
 
     bool CheckIfObjectTouched(Vector3 touchPosition)
