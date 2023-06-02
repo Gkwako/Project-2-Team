@@ -20,8 +20,6 @@ public class DragObject : MonoBehaviour
                 case TouchPhase.Began:
 
                     // Check if the touch hits the draggable object
-                    //if (CheckIfObjectTouched(touchPosition))
-
                     if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
                     {
                         //Debug.Log(touchPosition);
