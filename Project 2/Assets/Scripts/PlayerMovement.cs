@@ -10,4 +10,18 @@ public class PlayerMovement : MonoBehaviour
         // Move the player character to the right
         transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "Rock")
+        {
+            speed = 0f;
+        }
+    }
+
+    //  public void EndDialogue()
+    // {
+    //     speed = 5f;
+    // }
 }
+
