@@ -6,27 +6,57 @@ public class DragObject : MonoBehaviour
 {
     public bool isDragging = false;
     private Vector3 offset;
+    public float maxYPosition = 5f; // Maximum transform position on the y-axis
+    public float followSpeed = 5f; // Speed at which the object follows the input
+
+    public float followSpeedUp = 5f; // Speed at which the object follows the input when moving up
+    public float followSpeedDown = 2f; // Speed at which the object follows the input when moving down
 
     void Update()
     {
 
-        if(Input.GetButtonDown("Fire1"))
-        {
-            Vector3 touchPosition = Input.mousePosition;
-            isDragging = true;
-            offset = touchPosition - transform.position;
-
-                if (isDragging)
-                {
-                    transform.position = new Vector3(transform.position.x, Input.mousePosition.y - offset.y, transform.position.z);
-                }
-
-        }
-
-        if(Input.GetButtonUp("Fire1"))
+        if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log("Mouse down");
+            isDragging = true;
+
+
+            // Check if the mouse hits the draggable object
+            if (CheckIfObjectClicked(mousePosition))
+            {
+                //isDragging = true;
+                offset = mousePosition - transform.position;
+                Debug.Log("Bool going off");
+            }
+        }
+
+        // Only move the object if it's being dragged
+        if (isDragging)
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float targetY = mousePosition.y - offset.y;
+            float clampedY = Mathf.Clamp(targetY, -maxYPosition, maxYPosition);
+            Vector3 targetPosition = new Vector3(transform.position.x, clampedY, transform.position.z);
+
+            // Adjust the follow speed based on the direction of movement
+            float currentFollowSpeed = targetY > transform.position.y ? followSpeedUp : followSpeedDown;
+
+            transform.position = Vector3.Lerp(transform.position, targetPosition, currentFollowSpeed * Time.deltaTime);
+        }
+    
+
+        bool CheckIfObjectClicked(Vector3 mousePosition)
+        {
+            Collider2D collider = GetComponent<Collider2D>();
+            return collider.bounds.Contains(mousePosition);
+        }
+    
 
         if (Input.touchCount > 0)
         {
@@ -52,7 +82,21 @@ public class DragObject : MonoBehaviour
                     // Only move the object if it's being dragged
                     if (isDragging)
                     {
-                        transform.position = new Vector3(transform.position.x, touchPosition.y - offset.y, transform.position.z);
+                        //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        float targetY = touchPosition.y - offset.y;
+                        float clampedY = Mathf.Clamp(targetY, -maxYPosition, maxYPosition);
+                        Vector3 targetPosition = new Vector3(transform.position.x, clampedY, transform.position.z);
+
+                        // Adjust the follow speed based on the direction of movement
+                        float currentFollowSpeed = targetY > transform.position.y ? followSpeedUp : followSpeedDown;
+
+                        transform.position = Vector3.Lerp(transform.position, targetPosition, currentFollowSpeed * Time.deltaTime);
+
+                        //float targetY = touchPosition.y - offset.y;
+                        //float clampedY = Mathf.Clamp(targetY, -maxYPosition, maxYPosition);
+
+                        //Vector3 targetPosition = new Vector3(transform.position.x, clampedY, transform.position.z);
+                        //transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
                     }
                     break;
 
@@ -66,9 +110,20 @@ public class DragObject : MonoBehaviour
 
     }
 
+    /*
     bool CheckIfObjectTouched(Vector3 touchPosition)
     {
         Collider2D collider = GetComponent<Collider2D>();
         return collider.bounds.Contains(touchPosition);
     }
+
+    bool CheckIfObjectClicked(Vector3 mousePosition)
+    {
+        Collider2D collider = GetComponent<Collider2D>();
+        return collider.bounds.Contains(mousePosition);
+
+        Debug.Log("Mouse down");
+
+    }
+    */
 }
