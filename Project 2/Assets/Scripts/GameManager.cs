@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public PlayerMovement player;
     public GameObject HUD;
     public Camera cam;
+    public CameraMotorScript cameraScript;
     public DialogueManager dialogueManager;
 
     /*
@@ -42,6 +43,13 @@ public class GameManager : MonoBehaviour
     public int previousScene = 0;
     public int index;
     */
+
+    // Camera zooms
+    public bool carpetZoom;
+    public float camSpeed;
+    public GameObject lookAtCarpet;
+    public float transitionSpeed = 2.0f;
+
 
     void Start()
     {
@@ -57,7 +65,36 @@ public class GameManager : MonoBehaviour
     public void LateUpdate()
     {
 
+        if (carpetZoom)
+        {
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 30f, camSpeed);
+            //cameraScript.lookAt = lookAtCarpet.transform;
+
+            //if (cameraScript.lookAt != null)
+            //{
+                Vector3 targetPosition = lookAtCarpet.transform.position;
+                Vector3 currentPosition = transform.position;
+
+                // Calculate the new position with a smooth transition
+                Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime * transitionSpeed);
+
+                // Update the camera's position
+                transform.position = newPosition;
+            //}
+
+        }
+
+        else
+        {
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 12f, camSpeed);
+        }
     }
+
+    public void finalZoom()
+    {
+        carpetZoom = true;
+    }
+
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

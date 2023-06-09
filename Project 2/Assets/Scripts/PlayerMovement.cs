@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f; // Speed of the player character
+    public float pauseSpeed = 1f;
     public bool isPaused;
 
     void Update()
@@ -16,35 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
         if(isPaused == true)
         {
-            transform.Translate(Vector3.right * 0 * Time.deltaTime);
-        }
-    }
-
-    /*
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-        if(collision.gameObject.name == "Rock")
-        {
-            speed = 0f;
-        }
-        
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-
-        if (collision.gameObject.name == "Rock")
-        {
-            speed = 1.5f;
+            transform.Translate(Vector3.right * pauseSpeed * Time.deltaTime);
         }
 
     }
-    */
-
-    //  public void EndDialogue()
-    // {
-    //     speed = 5f;
-    // }
 }
 

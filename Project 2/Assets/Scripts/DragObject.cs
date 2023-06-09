@@ -14,6 +14,9 @@ public class DragObject : MonoBehaviour
 
     public bool speedUp;
     public float speedUpTimer;
+    public float speedBoostAmount;
+
+    private GameObject selectedObject; // Reference to the selected object
 
     private void Update()
     {
@@ -23,24 +26,28 @@ public class DragObject : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
+            selectedObject = null; // Reset the selected object when the mouse button is released
         }
 
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
             isDragging = true;
 
 
             // Check if the mouse hits the draggable object
-            if (CheckIfObjectClicked(mousePosition))
+            if ( /*CheckIfObjectClicked(mousePosition) && */ hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 offset = mousePosition - transform.position;
+                selectedObject = gameObject; // Set the selected object to the current object
             }
         }
 
         // Only move the object if it's being dragged
-        if (isDragging)
+        if (isDragging && selectedObject == gameObject)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float targetY = mousePosition.y - offset.y;
@@ -61,7 +68,7 @@ public class DragObject : MonoBehaviour
         }
     
         // Touch Controls
-
+        /*
         if (Input.touchCount > 0)
         {
 
@@ -103,7 +110,7 @@ public class DragObject : MonoBehaviour
                     break;
             }
 
-        }
+        } */
 
     }
 
@@ -112,21 +119,9 @@ public class DragObject : MonoBehaviour
 
         if (collision.gameObject.name == "Player")
         {
-            GameManager.instance.player.speed = 2.5f;
+            GameManager.instance.player.speed = speedBoostAmount;
         }
 
     }
-
-    /*
-    void OnCollisionExit2D(Collision2D collision)
-    {
-
-        if (collision.gameObject.name == "Player")
-        {
-            GameManager.instance.player.speed = 1.5f;
-        }
-
-    }
-    */
     
 }

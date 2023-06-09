@@ -8,10 +8,10 @@ public class TriggerText : MonoBehaviour
 
     public float displayDuration = 10f;
     private float timer = 0f;
-    private bool displayActive = false;
+    private static bool displayActive = false;
 
 
-    private void Update()
+    public void Update()
     {
 
         // Timer van de tekst
@@ -39,7 +39,7 @@ public class TriggerText : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == "Player")
         {
@@ -47,11 +47,11 @@ public class TriggerText : MonoBehaviour
             displayText.text = textMsg;
             displayActive = true;
 
-            Destroy(gameObject, displayDuration);
+            //Destroy(gameObject, displayDuration);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider)
+    public void OnTriggerExit2D(Collider2D collider)
     {
         /*
         
