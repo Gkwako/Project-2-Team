@@ -12,8 +12,13 @@ public class DragObject : MonoBehaviour
     public float followSpeedUp = 5f; // Speed at which the object follows the input when moving up
     public float followSpeedDown = 2f; // Speed at which the object follows the input when moving down
 
-    void Update()
+    public bool speedUp;
+    public float speedUpTimer;
+
+    private void Update()
     {
+
+        // Mouse Controls
 
         if (Input.GetMouseButtonUp(0))
         {
@@ -23,16 +28,14 @@ public class DragObject : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log("Mouse down");
+
             isDragging = true;
 
 
             // Check if the mouse hits the draggable object
             if (CheckIfObjectClicked(mousePosition))
             {
-                //isDragging = true;
                 offset = mousePosition - transform.position;
-                Debug.Log("Bool going off");
             }
         }
 
@@ -57,6 +60,7 @@ public class DragObject : MonoBehaviour
             return collider.bounds.Contains(mousePosition);
         }
     
+        // Touch Controls
 
         if (Input.touchCount > 0)
         {
@@ -82,7 +86,6 @@ public class DragObject : MonoBehaviour
                     // Only move the object if it's being dragged
                     if (isDragging)
                     {
-                        //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                         float targetY = touchPosition.y - offset.y;
                         float clampedY = Mathf.Clamp(targetY, -maxYPosition, maxYPosition);
                         Vector3 targetPosition = new Vector3(transform.position.x, clampedY, transform.position.z);
@@ -91,12 +94,6 @@ public class DragObject : MonoBehaviour
                         float currentFollowSpeed = targetY > transform.position.y ? followSpeedUp : followSpeedDown;
 
                         transform.position = Vector3.Lerp(transform.position, targetPosition, currentFollowSpeed * Time.deltaTime);
-
-                        //float targetY = touchPosition.y - offset.y;
-                        //float clampedY = Mathf.Clamp(targetY, -maxYPosition, maxYPosition);
-
-                        //Vector3 targetPosition = new Vector3(transform.position.x, clampedY, transform.position.z);
-                        //transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
                     }
                     break;
 
@@ -110,20 +107,26 @@ public class DragObject : MonoBehaviour
 
     }
 
-    /*
-    bool CheckIfObjectTouched(Vector3 touchPosition)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Collider2D collider = GetComponent<Collider2D>();
-        return collider.bounds.Contains(touchPosition);
+
+        if (collision.gameObject.name == "Player")
+        {
+            GameManager.instance.player.speed = 2.5f;
+        }
+
     }
 
-    bool CheckIfObjectClicked(Vector3 mousePosition)
+    /*
+    void OnCollisionExit2D(Collision2D collision)
     {
-        Collider2D collider = GetComponent<Collider2D>();
-        return collider.bounds.Contains(mousePosition);
 
-        Debug.Log("Mouse down");
+        if (collision.gameObject.name == "Player")
+        {
+            GameManager.instance.player.speed = 1.5f;
+        }
 
     }
     */
+    
 }
