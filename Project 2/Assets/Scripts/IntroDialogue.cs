@@ -14,7 +14,7 @@ public class IntroDialogue : MonoBehaviour
     
     private int index;
     float nextTypetime;
-    float delay = 8f;
+    float delay = 10f;
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class IntroDialogue : MonoBehaviour
             {
                 StopAllCoroutines();
                 textComponent.text = lines[index];
-                nextTypetime = Time.time + delay;
+                // nextTypetime = Time.time + delay;
             }
         } 
     }
