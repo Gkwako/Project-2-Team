@@ -4580,7 +4580,7 @@ GameObject:
   - component: {fileID: 2095717022}
   - component: {fileID: 2095717021}
   m_Layer: 5
-  m_Name: HUB
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
