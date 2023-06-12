@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     // Camera zooms
     public bool carpetZoom;
     public float camSpeed;
-    public GameObject lookAtCarpet;
+    //public GameObject lookAtCarpet;
     public float transitionSpeed = 2.0f;
 
 
@@ -67,20 +67,22 @@ public class GameManager : MonoBehaviour
 
         if (carpetZoom)
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 30f, camSpeed);
-            //cameraScript.lookAt = lookAtCarpet.transform;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 51f, camSpeed);
 
-            //if (cameraScript.lookAt != null)
-            //{
-                Vector3 targetPosition = lookAtCarpet.transform.position;
-                Vector3 currentPosition = transform.position;
+                //Vector3 targetPosition = cameraScript.lookAt2.transform.position;
+                //Vector3 currentPosition = cameraScript.lookAt.transform.position;
 
                 // Calculate the new position with a smooth transition
-                Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime * transitionSpeed);
+                //Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime * transitionSpeed);
 
                 // Update the camera's position
-                transform.position = newPosition;
-            //}
+                //transform.position = newPosition;
+
+                // Player position
+                player.isEnding = true;
+
+                //player.StartFade();
+                //player.fading = true;
 
         }
 
@@ -93,6 +95,12 @@ public class GameManager : MonoBehaviour
     public void finalZoom()
     {
         carpetZoom = true;
+        //cameraScript.zoomOut = true;
+    }
+
+    public void finalFade()
+    {
+        player.fading = true;
     }
 
 

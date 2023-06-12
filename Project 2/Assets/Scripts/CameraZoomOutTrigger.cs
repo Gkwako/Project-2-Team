@@ -21,6 +21,16 @@ public class CameraZoomOutTrigger : MonoBehaviour
 
         if (collision.gameObject.name == "Player")
         {
+            GameManager.instance.finalFade();
+        }
+
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.name == "Player")
+        {
             GameManager.instance.finalZoom();
         }
 

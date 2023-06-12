@@ -5,12 +5,15 @@ using UnityEngine;
 public class CameraMotorScript : MonoBehaviour
 {
     public Transform lookAt;
+    public Transform lookAt2;
     public Camera cam;
     public PlayerMovement player;
 
     public float boundX = 0f;
     public float boundY = 0f;
     public float boundZ = 0f;
+
+    public bool zoomOut;
 
     void Start()
     {
@@ -20,6 +23,11 @@ public class CameraMotorScript : MonoBehaviour
 
     void Update()
     {
+        //if(zoomOut)
+        //{
+            //lookAt = lookAt2;
+        //}
+
         Vector3 delta = Vector3.zero;
 
         // // This is to check if we're inside the bounds on the X axis

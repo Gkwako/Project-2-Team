@@ -7,6 +7,24 @@ public class PlayerMovement : MonoBehaviour
     public float pauseSpeed = 1f;
     public bool isPaused;
 
+    public bool isEnding;
+
+    // Fade to transparency
+    public SpriteRenderer spriteRenderer;
+    public float fadeDuration = 3f; // Duration in seconds
+    public bool fadeOutOnly = false; // If true, the sprite will only fade out and stay transparent
+
+    private Color originalColor;
+    private float timer = 0f;
+    public bool fading = false;
+    private bool fadeComplete = false;
+
+
+    void Start()
+    {
+        originalColor = spriteRenderer.color;
+    }
+
     void Update()
     {
         // Move the player character to the right
@@ -20,6 +38,58 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(Vector3.right * pauseSpeed * Time.deltaTime);
         }
 
+        if (isEnding)
+        {
+            Vector3 targetPosition = GameManager.instance.cameraScript.lookAt2.transform.position;
+            Vector3 currentPosition = GameManager.instance.cameraScript.lookAt.transform.position;
+
+            // Calculate the new position with a smooth transition
+            Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime * 0.15f);
+
+            // Update the camera's position
+            transform.position = newPosition;
+
+            if(transform.position == newPosition)
+            {
+                speed = 0f;
+            }
+        }
+
+        if (fading)
+        {
+            timer += Time.deltaTime;
+
+            // Calculate the new alpha value based on the elapsed time and fade duration
+            float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+
+            // Update the sprite's color with the new alpha value
+            spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+            // Check if the fading is complete
+            if (timer >= fadeDuration)
+            {
+                fading = false;
+                fadeComplete = true;
+
+                if (fadeOutOnly)
+                {
+                    spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
+                }
+            }
+        }
+    }
+
+    public void StartFade()
+    {
+        fading = true;
+        fadeComplete = false;
+        timer = 0f;
+        spriteRenderer.color = originalColor;
+    }
+
+    public bool IsFadeComplete()
+    {
+        return fadeComplete;
     }
 }
 
