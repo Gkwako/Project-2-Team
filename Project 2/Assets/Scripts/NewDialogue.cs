@@ -57,6 +57,7 @@ public class NewDialogue : MonoBehaviour
         {
             //step = 0;
             animator.SetBool("IsOpen", false); // Closes the dialogue box
+            Destroy(gameObject);
         }
 
         if (step < speaker.Length)
