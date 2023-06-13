@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 public class NewDialogue : MonoBehaviour
 {
@@ -15,12 +16,12 @@ public class NewDialogue : MonoBehaviour
     [SerializeField]
     private Image portraitImage;
 
-    [SerializeField]
-    private Image portraitImage2;
+    // [SerializeField]
+    // private Image portraitImage2;
 
     // dialogue content
     [SerializeField]
-    private string[] speaker;
+    public string[] speaker;
     
     [SerializeField]
     [TextArea]
@@ -29,8 +30,14 @@ public class NewDialogue : MonoBehaviour
     [SerializeField]
     private Sprite[] portrait;
 
-    [SerializeField]
-    private Sprite[] portrait2;
+    public Transform position1;
+    public Transform position2;
+
+    int indexToCheck0 = 0;
+    int indexToCheck1 = 1;
+
+    // [SerializeField]
+    // private Sprite[] portrait2;
 
     // private bool dialogueActive
     public Animator animator; // Animator for the DialogueBox
@@ -52,39 +59,39 @@ public class NewDialogue : MonoBehaviour
 
     private void StepButtonClick()
     {
-            {
-        if(step>= speaker.Length)
-        {
-            step = 0;
-            animator.SetBool("IsOpen", false); // Closes the dialogue box
-            portraitImage2.sprite = null;
-        } else{
-            animator.SetBool("IsOpen", true); // Opens the dialogue box
-            speakerText.text = speaker[step];
-            dialogueText.text = dialogueWords[step];
+            // {
+    //     if(step>= speaker.Length)
+    //     {
+    //         step = 0;
+    //         animator.SetBool("IsOpen", false); // Closes the dialogue box
+    //         portraitImage2.sprite = null;
+    //     } else{
+    //         animator.SetBool("IsOpen", true); // Opens the dialogue box
+    //         speakerText.text = speaker[step];
+    //         dialogueText.text = dialogueWords[step];
 
-            if (step % 2 == 0)
-            {
-                portraitImage.sprite = portrait[step];
+    //         if (step % 2 == 0)
+    //         {
+    //             portraitImage.sprite = portrait[step];
  
-                if (step > 0)
-                {
-                    portraitImage2.sprite = portrait[step - 1];
-                }
-            }
-            else
-            {
-                portraitImage2.sprite = portrait[step];
+    //             if (step > 0)
+    //             {
+    //                 portraitImage2.sprite = portrait[step - 1];
+    //             }
+    //         }
+    //         else
+    //         {
+    //             portraitImage2.sprite = portrait[step];
  
-                if (step > 0)
-                {
-                    portraitImage.sprite = portrait[step - 1];
-                }
-            }
+    //             if (step > 0)
+    //             {
+    //                 portraitImage.sprite = portrait[step - 1];
+    //             }
+    //         }
 
-            step += 1;
-        }
-    }
+    //         step += 1;
+    //     }
+    // }
         //  {
         // if(step>= speaker.Length)
         // {
@@ -104,18 +111,52 @@ public class NewDialogue : MonoBehaviour
         //     step += 1;
         // }
         //  }
-        // if(step>= speaker.Length)
-        // {
-        //     step = 0;
-        //     animator.SetBool("IsOpen", false); // Closes the dialogue box
-        // } else{
-        //     animator.SetBool("IsOpen", true); // Opens the dialogue box
-        //     speakerText.text = speaker[step];
-        //     dialogueText.text = dialogueWords[step];
-        //     portraitImage.sprite = portrait[step];
-        //     portraitImage2.sprite = portrait[step];
-        //     step += 1;
-        // }
+    {
+    //     if(step>= speaker.Length)
+    //     {
+    //         step = 0;
+    //         animator.SetBool("IsOpen", false); // Closes the dialogue box
+    //     } else{
+    //         animator.SetBool("IsOpen", true); // Opens the dialogue box
+    //         speakerText.text = speaker[step];
+    //         dialogueText.text = dialogueWords[step];
+    //         portraitImage.sprite = portrait[step];
+    //         // portraitImage2.sprite = portrait[step];
+    //         step += 1;
+    //     }
+    // }
+    // }
+
+        if(step>= speaker.Length)
+        {
+            step = 0;
+            animator.SetBool("IsOpen", false); // Closes the dialogue box
+        } 
+        
+        if (step<= speaker.Length)
+        {
+
+            if(speaker[indexToCheck0].Contains("De Jonge"))
+            {
+                portraitImage.transform.position = position1.transform.position;
+                Debug.Log(portraitImage.transform.position);
+            }
+
+            if(speaker[indexToCheck1].Contains("De Oude"))
+            {
+                portraitImage.transform.position = position2.transform.position;
+                Debug.Log(portraitImage.transform.position);
+            }
+
+            animator.SetBool("IsOpen", true); // Opens the dialogue box
+            speakerText.text = speaker[step];
+            dialogueText.text = dialogueWords[step];
+            portraitImage.sprite = portrait[step];
+            step += 1;
+
+            
+        }
+    }
     }
 
     //  IEnumerator TypeSentence(string dialogueWords)
