@@ -7,6 +7,7 @@ using TMPro;
 public class IntroDialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    public Text text;
     public GameObject dialogueBox;
     public string[] lines;
     public float textSpeed;
@@ -28,7 +29,7 @@ public class IntroDialogue : MonoBehaviour
     {
         if (Time.time > nextTypetime)
         {
-            if(textComponent.text == lines[index])
+            if(text.text == lines[index])
             {
                 NextLine();
                 nextTypetime = Time.time + delay;
@@ -36,7 +37,7 @@ public class IntroDialogue : MonoBehaviour
             else
             {
                 StopAllCoroutines();
-                textComponent.text = lines[index];
+                text.text = lines[index];
                 // nextTypetime = Time.time + delay;
             }
         } 
@@ -56,7 +57,7 @@ public class IntroDialogue : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
-            textComponent.text += c;
+            text.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
@@ -66,7 +67,7 @@ public class IntroDialogue : MonoBehaviour
         if(index < lines.Length - 1)
         {
             index++;
-            textComponent.text = string.Empty;
+            text.text = string.Empty;
             StartCoroutine(TypeLine());
         } 
         else

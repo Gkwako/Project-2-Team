@@ -47,7 +47,7 @@ public class CameraMotorScript : MonoBehaviour
 
 
         //     // This is to check if we're inside the bounds on the Y axis
-                 float deltaY = lookAt.position.y - transform.position.y;
+                 float deltaY = lookAt.position.y + 2f - transform.position.y;
                  if(deltaY > boundY || deltaY < -boundY)
                  {
                      if(transform.position.y < lookAt.position.y)
