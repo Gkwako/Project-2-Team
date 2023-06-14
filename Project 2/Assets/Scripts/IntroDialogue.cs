@@ -7,7 +7,7 @@ using TMPro;
 public class IntroDialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public Text text;
+    public TextMeshProUGUI text;
     public GameObject dialogueBox;
     public string[] lines;
     public float textSpeed;
