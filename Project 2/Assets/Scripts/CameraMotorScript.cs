@@ -19,6 +19,7 @@ public class CameraMotorScript : MonoBehaviour
     {
         lookAt = GameObject.Find("Player").transform;
         cam = Camera.main;
+        SoundManager.PlaySound("BGsea");
     }
 
     void Update()
