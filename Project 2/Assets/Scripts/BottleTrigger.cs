@@ -10,7 +10,7 @@
 //     public GameObject dialogueBox;
 //     public string[] lines;
 //     public float textSpeed;
-//     // public float invokeTime;
+//     public float invokeTime;
     
 //     private int index;
 //     float nextTypetime;
