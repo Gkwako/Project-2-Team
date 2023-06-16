@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         backgroundSound = Resources.Load<AudioClip>("BGsea");
-        fireSound = Resources.Load<AudioClip>("fire");
+        fireSound = Resources.Load<AudioClip>("Kanon");
         
         audioSrc = GetComponent<AudioSource> ();
     }
@@ -30,7 +30,7 @@ public class SoundManager : MonoBehaviour
             break;
         }
         switch (clip) {
-        case "fire":
+        case "Kanon":
             audioSrc.PlayOneShot (fireSound);
             break;
         }
