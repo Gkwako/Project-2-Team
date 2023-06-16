@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
 
         if (carpetZoom)
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 51f, camSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 60f, camSpeed);
 
                 //Vector3 targetPosition = cameraScript.lookAt2.transform.position;
                 //Vector3 currentPosition = cameraScript.lookAt.transform.position;
@@ -91,12 +92,12 @@ public class GameManager : MonoBehaviour
 
         if(dialogueZoom)
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 20f, camSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 30f, camSpeed);
         }
 
         else
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 12f, camSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 20f, camSpeed);
         }
     }
 
@@ -116,7 +117,7 @@ public class GameManager : MonoBehaviour
     public void slowSpeedPlayer()
     {
         player.speed = 0.5f;
-        Debug.Log("Slow speed player");
+        //Debug.Log("Slow speed player");
     }
 
     public void normalSpeedPlayer()
@@ -124,7 +125,7 @@ public class GameManager : MonoBehaviour
         if(dialogueActive == false)
         {
             player.speed = 5f;
-            Debug.Log("Normal speed player");
+            //Debug.Log("Normal speed player");
         }
     }
 
@@ -133,14 +134,14 @@ public class GameManager : MonoBehaviour
         if(dialogueActive == false)
         {
             player.speed = 10f;
-            Debug.Log("Fast speed player");
+            //Debug.Log("Fast speed player");
         }
     }
 
     public void noSpeedPlayer()
     {
         player.speed = 0f;
-        Debug.Log("No speed player");
+        //Debug.Log("No speed player");
     }
 
     ///////////

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TriggerText : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class TriggerText : MonoBehaviour
                 displayText.text = textMsg;
                 displayActive = false;
                 timer = 0f;
+                //GameManager.instance.normalSpeedPlayer();
             }
         }
 

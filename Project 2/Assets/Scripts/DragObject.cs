@@ -123,5 +123,15 @@ public class DragObject : MonoBehaviour
         }
 
     }
-    
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.name == "Player")
+        {
+            GameManager.instance.fastSpeedPlayer();
+        }
+
+    }
+
 }

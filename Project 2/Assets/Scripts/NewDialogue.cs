@@ -38,6 +38,8 @@ public class NewDialogue : MonoBehaviour
     private int step;
     private int currentIndex;
 
+    public Collider2D collider;
+
     private void Start()
     {
         //animator = GetComponent<Animator>();
@@ -60,7 +62,7 @@ public class NewDialogue : MonoBehaviour
 
             //step = 0;
             animator.SetBool("IsOpen", false); // Closes the dialogue box
-            Destroy(gameObject);
+            Destroy(collider);
         }
 
         if (step < speaker.Length)

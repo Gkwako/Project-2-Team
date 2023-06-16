@@ -15,13 +15,23 @@ public class Rocks : MonoBehaviour
     {
         
     }
-    /*
+    
     void OnCollisionEnter2D(Collision2D collision)
     {
 
         if (collision.gameObject.name == "Player")
         {
-            GameManager.instance.player.speed = 0f;
+            GameManager.instance.noSpeedPlayer();
+        }
+
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.name == "Player")
+        {
+            GameManager.instance.noSpeedPlayer();
         }
 
     }
@@ -31,9 +41,9 @@ public class Rocks : MonoBehaviour
 
         if (collision.gameObject.name == "Player")
         {
-            GameManager.instance.player.speed = GameManager.instance.player.speed;
+            GameManager.instance.normalSpeedPlayer();
         }
 
     }
-    */
+    
 }
