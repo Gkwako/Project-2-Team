@@ -32,3 +32,5 @@ public class Canon : MonoBehaviour
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
     }
 }
+
+// Bron: https://www.youtube.com/watch?v=--u20SaCCow&t=433s
