@@ -46,9 +46,12 @@ public class GameManager : MonoBehaviour
 
     // Camera zooms
     public bool carpetZoom;
+    public bool dialogueZoom;
     public float camSpeed;
     //public GameObject lookAtCarpet;
     public float transitionSpeed = 2.0f;
+
+    public bool dialogueActive;
 
 
     void Start()
@@ -86,6 +89,11 @@ public class GameManager : MonoBehaviour
 
         }
 
+        if(dialogueZoom)
+        {
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 20f, camSpeed);
+        }
+
         else
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 12f, camSpeed);
@@ -103,6 +111,39 @@ public class GameManager : MonoBehaviour
         player.fading = true;
     }
 
+    // PLAYER SPEED ADJUSTMENT FUNCTIONS
+
+    public void slowSpeedPlayer()
+    {
+        player.speed = 0.5f;
+        Debug.Log("Slow speed player");
+    }
+
+    public void normalSpeedPlayer()
+    {
+        if(dialogueActive == false)
+        {
+            player.speed = 5f;
+            Debug.Log("Normal speed player");
+        }
+    }
+
+    public void fastSpeedPlayer()
+    {
+        if(dialogueActive == false)
+        {
+            player.speed = 10f;
+            Debug.Log("Fast speed player");
+        }
+    }
+
+    public void noSpeedPlayer()
+    {
+        player.speed = 0f;
+        Debug.Log("No speed player");
+    }
+
+    ///////////
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

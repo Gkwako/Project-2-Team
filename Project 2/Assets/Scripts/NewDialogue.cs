@@ -55,6 +55,9 @@ public class NewDialogue : MonoBehaviour
     {
         if (step >= speaker.Length)
         {
+            GameManager.instance.normalSpeedPlayer();
+            GameManager.instance.dialogueZoom = false;
+
             //step = 0;
             animator.SetBool("IsOpen", false); // Closes the dialogue box
             Destroy(gameObject);
@@ -62,6 +65,9 @@ public class NewDialogue : MonoBehaviour
 
         if (step < speaker.Length)
         {
+            GameManager.instance.noSpeedPlayer();
+            GameManager.instance.dialogueZoom = true;
+
             if (speaker[step] == "De Jonge")
             {
                 portraitImage.transform.position = position1.position;

@@ -9,7 +9,7 @@ public class BGWaves : MonoBehaviour
 
         if (collision.gameObject.name == "Player")
         {
-            GameManager.instance.player.speed = 1.5f;
+            GameManager.instance.normalSpeedPlayer();
         }
 
     }

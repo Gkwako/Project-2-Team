@@ -119,7 +119,7 @@ public class DragObject : MonoBehaviour
 
         if (collision.gameObject.name == "Player")
         {
-            GameManager.instance.player.speed = speedBoostAmount;
+            GameManager.instance.fastSpeedPlayer();
         }
 
     }

@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
             if(transform.position == newPosition)
             {
-                speed = 0f;
+                GameManager.instance.noSpeedPlayer();
             }
         }
 

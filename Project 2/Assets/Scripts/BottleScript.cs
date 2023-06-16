@@ -33,6 +33,9 @@ public class BottleScript : MonoBehaviour
         dialogueBox.gameObject.SetActive(true);
         Debug.Log("opent");
         StartCoroutine(CloserDialogue());
+
+        GameManager.instance.dialogueActive = true;
+        GameManager.instance.slowSpeedPlayer();
     }
        
     IEnumerator CloserDialogue(){
@@ -41,7 +44,11 @@ public class BottleScript : MonoBehaviour
 		  yield return new WaitForSeconds(3);
 	      dialogueBox.gameObject.SetActive(false);
 		  Debug.Log("closed");
-    	}
+
+          GameManager.instance.dialogueActive = false;
+          GameManager.instance.normalSpeedPlayer();
+
+        }
     }
 }
 
