@@ -11,6 +11,14 @@ public class TriggerText : MonoBehaviour
     private float timer = 0f;
     private static bool displayActive = false;
 
+    public Animator anim;
+    public BoxCollider2D coll;
+
+    public void Start()
+    {
+        coll = GetComponent<BoxCollider2D>();
+    }
+
 
     public void Update()
     {
@@ -37,6 +45,7 @@ public class TriggerText : MonoBehaviour
             displayText.text = "";
 
             GameManager.instance.player.isPaused = false;
+            timer = 0f;
             //GameManager.instance.player.speed = 1.5f;
         }
     }
@@ -49,7 +58,9 @@ public class TriggerText : MonoBehaviour
             displayText.text = textMsg;
             displayActive = true;
 
-            //Destroy(gameObject, displayDuration);
+            anim.SetTrigger("Activate");
+
+            Destroy(coll, 1f);
         }
     }
 
