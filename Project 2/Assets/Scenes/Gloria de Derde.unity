@@ -2005,6 +2005,8 @@ MonoBehaviour:
   displayText: {fileID: 461213454}
   textMsg: Sleep de golf omlaag
   displayDuration: 2
+  anim: {fileID: 0}
+  coll: {fileID: 0}
 --- !u!4 &222238306
 Transform:
   m_ObjectHideFlags: 0
@@ -2721,7 +2723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330070203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -75, y: 0.2, z: 0}
+  m_LocalPosition: {x: -304.8, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3747,6 +3749,168 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &456690515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 456690519}
+  - component: {fileID: 456690518}
+  - component: {fileID: 456690517}
+  - component: {fileID: 456690516}
+  m_Layer: 0
+  m_Name: Scene Trigger 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &456690516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456690515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69601ce0878f64be38db3cc6b0e555e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speakerText: {fileID: 350365331}
+  dialogueText: {fileID: 2018724467}
+  portraitImage: {fileID: 1647586120}
+  speaker:
+  - De Oude
+  - De Jonge
+  - De Oude
+  - De Jonge
+  - De Oude
+  - De Jonge
+  - De Oude
+  dialogueWords:
+  - "Kijk daar vaart de Zeven provinci\xEBn. Aan boord zit onze Admiraal Michiel
+    de Ruyter.\n"
+  - Er lijkt wanorde te zijn in onze vloot.
+  - 'Dit komt omdat door de lijwind het moeilijk is om een linie te vormen.
+
+'
+  - De Fransen breken af van de vloot en varen naar het zuiden. Waarom doen ze dit?
+  - Geen idee, ze beperken hiermee hun bijdrage tot op afstand schieten.
+  - Wacht eens, de wind draait!
+  - 'En Admiraal de Ruyter grijpt zijn kans en valt aan met het centrum. Snel, volg
+    hem!
+
+'
+  portrait:
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  position1: {fileID: 1000972579}
+  position2: {fileID: 1653914206}
+  animator: {fileID: 852226397}
+  collider: {fileID: 456690517}
+  button: {fileID: 632634368}
+--- !u!61 &456690517
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456690515}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.045784473, y: 0.08589029}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9, y: 9}
+    newSize: {x: 5.9559383, y: 6.1576333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 1
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.836358, y: 6.5209484}
+  m_EdgeRadius: 0
+--- !u!212 &456690518
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456690515}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1775035423
+  m_SortingLayer: 1
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: a90438408cc3e7446be5a82081aaf0ed, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 1
+  m_Size: {x: 5.9559383, y: 6.1576333}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &456690519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456690515}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -230.1181, y: 0.04, z: 0}
+  m_LocalScale: {x: 0.65037286, y: 0.65037286, z: 0.65037286}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &461213453
 GameObject:
   m_ObjectHideFlags: 0
@@ -4589,8 +4753,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232.9, y: -54.6}
-  m_SizeDelta: {x: 109.0876, y: 25.0502}
+  m_AnchoredPosition: {x: 232.52475, y: -52.848923}
+  m_SizeDelta: {x: 109.8381, y: 28.5524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632634368
 MonoBehaviour:
@@ -4661,7 +4825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28235295, g: 0.227451, b: 0.18039216, a: 0.77254903}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5662,7 +5826,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790323408
 GameObject:
@@ -6315,7 +6479,7 @@ GameObject:
   - component: {fileID: 841879584}
   - component: {fileID: 841879583}
   m_Layer: 0
-  m_Name: VerhaalTrigger1 (1)
+  m_Name: Scene Trigger 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6360,15 +6524,16 @@ MonoBehaviour:
 
 '
   portrait:
-  - {fileID: 21300000, guid: 56840ef006725c54581a8316e3c42cbd, type: 3}
-  - {fileID: 21300000, guid: dec53968bb59448dcadbc3ab93e6de4f, type: 3}
-  - {fileID: 21300000, guid: 56840ef006725c54581a8316e3c42cbd, type: 3}
-  - {fileID: 21300000, guid: 56840ef006725c54581a8316e3c42cbd, type: 3}
-  - {fileID: 21300000, guid: 56840ef006725c54581a8316e3c42cbd, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
   position1: {fileID: 1000972579}
   position2: {fileID: 1653914206}
   animator: {fileID: 852226397}
   collider: {fileID: 841879584}
+  button: {fileID: 632634368}
 --- !u!61 &841879584
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7467,7 +7632,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000972578}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7477,7 +7642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -228.4, y: 200.2}
+  m_AnchoredPosition: {x: -214.2, y: 199}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1011804675
@@ -8421,6 +8586,8 @@ MonoBehaviour:
   displayText: {fileID: 461213454}
   textMsg: Tik op de flessenpost
   displayDuration: 2
+  anim: {fileID: 0}
+  coll: {fileID: 0}
 --- !u!4 &1213475436
 Transform:
   m_ObjectHideFlags: 0
@@ -9592,17 +9759,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: Volgende
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 323655aaba2404a56be9f9341d5813e3, type: 2}
+  m_sharedMaterial: {fileID: 5097511794437705852, guid: 323655aaba2404a56be9f9341d5813e3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9619,8 +9786,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10125,6 +10292,8 @@ MonoBehaviour:
   displayText: {fileID: 461213454}
   textMsg: Sleep de golf omhoog
   displayDuration: 2
+  anim: {fileID: 0}
+  coll: {fileID: 0}
 --- !u!4 &1483905981
 Transform:
   m_ObjectHideFlags: 0
@@ -11471,7 +11640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dec53968bb59448dcadbc3ab93e6de4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11506,8 +11675,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -228.4, y: 200.2}
-  m_SizeDelta: {x: 179.3661, y: 198.8025}
+  m_AnchoredPosition: {x: -214.2, y: 199}
+  m_SizeDelta: {x: 209.4198, y: 198.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1653914205
 GameObject:
@@ -11542,7 +11711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 228.4, y: 200.2}
+  m_AnchoredPosition: {x: 214.2, y: 199}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1754190793
@@ -12107,6 +12276,171 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1823661588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1823661592}
+  - component: {fileID: 1823661591}
+  - component: {fileID: 1823661590}
+  - component: {fileID: 1823661589}
+  m_Layer: 0
+  m_Name: Scene Trigger 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1823661589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823661588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69601ce0878f64be38db3cc6b0e555e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speakerText: {fileID: 350365331}
+  dialogueText: {fileID: 2018724467}
+  portraitImage: {fileID: 1647586120}
+  speaker:
+  - De Jonge
+  - De Oude
+  - De Oude
+  - De Jonge
+  - De Oude
+  - De Jonge
+  - De Oude
+  - De Jonge
+  dialogueWords:
+  - De Dolfijn en de HMS Royal James liggen met elkaar in de knoop.
+  - De Groot Hollandia schiet De Dolfijn te hulp.
+  - 'Admiraal de Ruyter gaat voor de Royal Prince!
+
+'
+  - 'kapitein Brakel valt de Royal James aan met zijn Groot Hollandia.
+
+'
+  - 'Hij klemt zijn schip vast aan de Royal James.
+
+'
+  - Ze voeren een derde brandaanval uit!
+  - Hij raakt! Ze hebben de Royal James in lichterlaaie gezet.
+  - Engelse vice-admiraal Edward Montague springt van het schip!
+  portrait:
+  - {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
+  - {fileID: 21300000, guid: ba1b04bf112ca46ca837a7cb643d6f3f, type: 3}
+  - {fileID: 21300000, guid: b83938b7d8cfa4dc09bdb856899483d8, type: 3}
+  position1: {fileID: 1000972579}
+  position2: {fileID: 1653914206}
+  animator: {fileID: 852226397}
+  collider: {fileID: 1823661590}
+  button: {fileID: 632634368}
+--- !u!61 &1823661590
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823661588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.045784473, y: 0.08589029}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9, y: 9}
+    newSize: {x: 5.9559383, y: 6.1576333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 1
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.836358, y: 6.5209484}
+  m_EdgeRadius: 0
+--- !u!212 &1823661591
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823661588}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1775035423
+  m_SortingLayer: 1
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: a90438408cc3e7446be5a82081aaf0ed, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 1
+  m_Size: {x: 5.9559383, y: 6.1576333}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1823661592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823661588}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -265.2, y: 0.04, z: 0}
+  m_LocalScale: {x: 0.65037286, y: 0.6503728, z: 0.65037286}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827189853
 GameObject:
   m_ObjectHideFlags: 0
@@ -13176,11 +13510,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Bij deze zeeslag waren 75 oorlogsschepen van de Nederlandse vloot betrokken.
-    \n\n"
+  m_text: 'Om te schetsen gebruikten Willem Van de Velde de Oude en Willem Van de
+    Velde de Jonge een grafietstift.
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 30f5425de760e49e7a85b4bd05387039, type: 2}
+  m_sharedMaterial: {fileID: 4171550062748132970, guid: 30f5425de760e49e7a85b4bd05387039, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13204,8 +13540,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13315,8 +13651,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 323655aaba2404a56be9f9341d5813e3, type: 2}
+  m_sharedMaterial: {fileID: 5097511794437705852, guid: 323655aaba2404a56be9f9341d5813e3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13340,8 +13676,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

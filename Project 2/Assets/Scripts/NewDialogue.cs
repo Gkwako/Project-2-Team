@@ -40,6 +40,9 @@ public class NewDialogue : MonoBehaviour
 
     public Collider2D collider;
 
+    [SerializeField]
+    Button button;
+
     private void Start()
     {
         //animator = GetComponent<Animator>();
@@ -49,6 +52,14 @@ public class NewDialogue : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            //remove listener
+            //how to change assigned function in onclick via script
+            button.onClick.RemoveListener(StepButtonClick);
+
+            //add new listener
+            button.onClick.AddListener(OnClickNextStep);
+
+            // step = 0;
             StepButtonClick();
         }
     }
@@ -92,3 +103,5 @@ public class NewDialogue : MonoBehaviour
         StepButtonClick();
     }
 }
+
+// Bron : https://www.youtube.com/watch?v=vR6H3mu_xD8&list=PLSR2vNOypvs4Pc72kaB_Y1v3AszNd-UuF
