@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 
         if(dialogueZoom)
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 30f, camSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 15f, camSpeed);
         }
 
         else

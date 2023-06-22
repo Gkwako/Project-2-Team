@@ -12,6 +12,9 @@ public class CameraZoomOutTrigger : MonoBehaviour
     public Animator anim6;
     public Animator anim7;
 
+    public Animator anim8;
+    public Animator anim9;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +42,8 @@ public class CameraZoomOutTrigger : MonoBehaviour
             anim5.SetTrigger("Ending");
             anim6.SetTrigger("Ending");
             anim7.SetTrigger("Ending");
-
+            anim8.SetTrigger("Ending");
+            anim9.SetTrigger("Ending");
         }
 
     }

@@ -911,14 +911,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a425bf20c280b43969132d4b1c9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDragging: 0
-  maxYPosition: 7
   followSpeed: 2
-  followSpeedUp: 2
-  followSpeedDown: 2
   speedUp: 0
   speedUpTimer: 0
   speedBoostAmount: 5
+  isDragging: 0
+  maxYPosition: 7
+  followSpeedUp: 2
+  followSpeedDown: 2
 --- !u!68 &74715607
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -9269,6 +9269,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5a263dbe8911445ae4c85a7bd285bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim1: {fileID: 0}
+  anim2: {fileID: 0}
+  anim3: {fileID: 0}
+  anim4: {fileID: 0}
+  anim5: {fileID: 0}
+  anim6: {fileID: 0}
+  anim7: {fileID: 0}
 --- !u!4 &1349314513
 Transform:
   m_ObjectHideFlags: 0
@@ -10735,14 +10742,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a425bf20c280b43969132d4b1c9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDragging: 0
-  maxYPosition: 1.5
   followSpeed: 2
-  followSpeedUp: 2
-  followSpeedDown: 2
   speedUp: 0
   speedUpTimer: 0
   speedBoostAmount: 5
+  isDragging: 0
+  maxYPosition: 1.5
+  followSpeedUp: 2
+  followSpeedDown: 2
 --- !u!68 &1594443935
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -11239,14 +11246,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a425bf20c280b43969132d4b1c9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDragging: 0
-  maxYPosition: 1.5
   followSpeed: 2
-  followSpeedUp: 2
-  followSpeedDown: 2
   speedUp: 0
   speedUpTimer: 0
   speedBoostAmount: 5
+  isDragging: 0
+  maxYPosition: 1.5
+  followSpeedUp: 2
+  followSpeedDown: 2
 --- !u!68 &1611741064
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -11695,14 +11702,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a425bf20c280b43969132d4b1c9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDragging: 0
-  maxYPosition: 7
   followSpeed: 2
-  followSpeedUp: 2
-  followSpeedDown: 2
   speedUp: 0
   speedUpTimer: 0
   speedBoostAmount: 5
+  isDragging: 0
+  maxYPosition: 7
+  followSpeedUp: 2
+  followSpeedDown: 2
 --- !u!68 &1640599277
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -12682,7 +12689,7 @@ SpriteRenderer:
   m_Size: {x: 6.54, y: 4.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1893227919
