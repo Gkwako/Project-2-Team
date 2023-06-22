@@ -55,7 +55,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -128,14 +128,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a425bf20c280b43969132d4b1c9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDragging: 0
-  maxYPosition: 7
   followSpeed: 2
-  followSpeedUp: 2
-  followSpeedDown: 2
   speedUp: 0
   speedUpTimer: 0
   speedBoostAmount: 5
+  isDragging: 0
+  maxYPosition: 7
+  followSpeedUp: 2
+  followSpeedDown: 2
 --- !u!60 &1812164994548720802
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -314,7 +314,7 @@ Transform:
   m_GameObject: {fileID: 1812164994869344101}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.27, y: -0.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1812164994548720806}
@@ -360,7 +360,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -434466085
   m_SortingLayer: 2
-  m_SortingOrder: 3
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 3b537151fd5ad6d49bb26852628d7f65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

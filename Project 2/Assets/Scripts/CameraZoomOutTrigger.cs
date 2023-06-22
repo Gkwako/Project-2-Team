@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class CameraZoomOutTrigger : MonoBehaviour
 {
+    public Animator anim1;
+    public Animator anim2;
+    public Animator anim3;
+    public Animator anim4;
+    public Animator anim5;
+    public Animator anim6;
+    public Animator anim7;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +31,15 @@ public class CameraZoomOutTrigger : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             GameManager.instance.finalFade();
+
+            anim1.SetTrigger("Ending");
+            anim2.SetTrigger("Ending");
+            anim3.SetTrigger("Ending");
+            anim4.SetTrigger("Ending");
+            anim5.SetTrigger("Ending");
+            anim6.SetTrigger("Ending");
+            anim7.SetTrigger("Ending");
+
         }
 
     }
