@@ -11,25 +11,25 @@ public class StoryDialogue : MonoBehaviour
     public GameObject dialogueBox;
     public string[] lines;
     public float textSpeed;
-    public float invokeTime;
+    // public float invokeTime;
     
     private int index;
     float nextTypetime;
     float delay = 10f;
 
-    void Start()
-    {
-        dialogueBox.gameObject.SetActive(false);
-        textComponent.text = string.Empty;
-        Invoke("StartDialogue",invokeTime);
-    }
+    // void Start()
+    // {
+    //     dialogueBox.gameObject.SetActive(false);
+    //     textComponent.text = string.Empty;
+    //     // Invoke("StartDialogue",invokeTime);
+    // }
 
-     private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other) 
     {
-        if (collision.gameObject.tag == "Player")
+        if(other.collider.gameObject.name == "Player") 
         {
-
             StartDialogue();
+            Debug.Log("Collision detected with" + other.collider.name);
         }
     }
 
