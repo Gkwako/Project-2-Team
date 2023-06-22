@@ -7,7 +7,7 @@ using TMPro;
 public class StoryDialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public TextMeshProUGUI text;
+    public Text text;
     public GameObject dialogueBox;
     public string[] lines;
     public float textSpeed;
