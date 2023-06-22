@@ -54,7 +54,7 @@ public class NewDialogue : MonoBehaviour
         {
             //remove listener
             //how to change assigned function in onclick via script
-            button.onClick.RemoveListener(StepButtonClick);
+            
 
             //add new listener
             button.onClick.AddListener(OnClickNextStep);
@@ -73,6 +73,7 @@ public class NewDialogue : MonoBehaviour
 
             //step = 0;
             animator.SetBool("IsOpen", false); // Closes the dialogue box
+            button.onClick.RemoveListener(StepButtonClick);
             Destroy(collider);
         }
 
