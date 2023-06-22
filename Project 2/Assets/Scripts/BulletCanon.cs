@@ -17,6 +17,14 @@ public class BulletCanon : MonoBehaviour
 
         Vector3 direction = player.transform.position - transform.position;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force; 
+
+        // add gravity after some time
+        Invoke("AddGravity", 2);
+    }
+
+    void AddGravity() 
+    {   
+        rb.gravityScale = 1;
     }
 
     // Update is called once per frame
