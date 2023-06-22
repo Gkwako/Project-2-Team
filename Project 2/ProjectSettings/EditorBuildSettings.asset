@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartGame.unity
+    guid: 59fae4204cb9042a69adaec0b3dab0f8
+  - enabled: 1
     path: Assets/Scenes/Sebas.unity
     guid: bb0798b3bff16824b918961ba5b9d23d
   - enabled: 1
     path: Assets/Scenes/Gloria de Derde.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/StartGame.unity
-    guid: 59fae4204cb9042a69adaec0b3dab0f8
   m_configObjects: {}
