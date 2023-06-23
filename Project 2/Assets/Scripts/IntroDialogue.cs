@@ -12,10 +12,11 @@ public class IntroDialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public float invokeTime;
+    public float delay;
     
     private int index;
     float nextTypetime;
-    float delay = 10f;
+    // float delay = 10f;
 
     void Start()
     {
