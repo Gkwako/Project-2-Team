@@ -12,6 +12,12 @@ public class BottleScript : MonoBehaviour
     public float WaitForSeconds;
     private bool activateDialogueBox;
 
+    public Animator anim;
+    public Animator anim2;
+
+    public string paperText;
+    public TextMeshProUGUI paper;
+
     void Update()
     {
         // Move the bottle to the right
@@ -23,12 +29,17 @@ public class BottleScript : MonoBehaviour
         activateDialogueBox = false;
         if(dialogueBox)
         {
-            dialogueBox.gameObject.SetActive(false);
+            //dialogueBox.gameObject.SetActive(false);
         }
     }
 
     void OnMouseDown()  
-    {  
+    {
+        anim.SetTrigger("Tap");
+        anim2.SetTrigger("Activate");
+
+        paper.text = paperText;
+
         activateDialogueBox = true;
         dialogueBox.gameObject.SetActive(true);
         Debug.Log("opent");
@@ -41,11 +52,13 @@ public class BottleScript : MonoBehaviour
     IEnumerator CloserDialogue(){
 		if(activateDialogueBox)
         {
-		  yield return new WaitForSeconds(3);
-	      dialogueBox.gameObject.SetActive(false);
+		  yield return new WaitForSeconds(5);
+	      //dialogueBox.gameObject.SetActive(false);
 		  Debug.Log("closed");
+            //anim2.SetTrigger("Disactivate");
 
-          GameManager.instance.dialogueActive = false;
+
+            GameManager.instance.dialogueActive = false;
           GameManager.instance.normalSpeedPlayer();
 
         }

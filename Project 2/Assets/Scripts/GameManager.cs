@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public Camera cam;
     public CameraMotorScript cameraScript;
     public DialogueManager dialogueManager;
+    public SoundManager soundManager;
 
     /*
     // Scenes
@@ -57,6 +58,10 @@ public class GameManager : MonoBehaviour
     // Willem's schetsen
     public Sprite[] backgroundSprites;
     public bool dialogue1;
+    public bool dialogue2;
+    public bool dialogue3;
+
+
     public Animator backgroundAnim;
     public float fadeDuration = 1f; // The duration of the fade in seconds
     public int currentSpriteIndex;
@@ -77,52 +82,26 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        // Check if the sprite should be faded
-        if (dialogue1 && !fadingOut)
+        if (dialogue1 && !dialogue2 && !dialogue3)
         {
-            // Start fading out the current sprite
-            fadingOut = true;
-            currentFadeTime = fadeDuration;
-            //UpdateSprite();
-        }
-        else if (!dialogue1 && fadingOut)
-        {
-            // Start fading in the next sprite
-            fadingOut = false;
-            currentFadeTime = fadeDuration;
-            //UpdateSprite();
-            //currentSpriteIndex = (currentSpriteIndex + 1) % backgroundSprites.Length;
+            cameraScript.spriteRenderer.sprite = backgroundSprites[1];
         }
 
-        // Update the sprite opacity based on the fade progress
-        if (currentFadeTime > 0)
+        if (dialogue2 && !dialogue1 && !dialogue3)
         {
-            UpdateSprite();
-
-            float fadeProgress = 1f - (currentFadeTime / fadeDuration);
-            Color spriteColor = cameraScript.spriteRenderer.color;
-            spriteColor.a = fadingOut ? fadeProgress : 1f - fadeProgress;
-            cameraScript.spriteRenderer.color = spriteColor;
-            currentFadeTime -= Time.deltaTime;
-            //UpdateSprite();
+            cameraScript.spriteRenderer.sprite = backgroundSprites[2];
         }
 
-        if (currentFadeTime <= 0)
+        if (dialogue3 && !dialogue2 && !dialogue1)
         {
-            float fadeProgress = 1f - (currentFadeTime / fadeDuration);
-            Color spriteColor = cameraScript.spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            cameraScript.spriteRenderer.color = spriteColor;
+            cameraScript.spriteRenderer.sprite = backgroundSprites[3];
         }
 
-        //if (dialogue1)
-        //{
-        //    cameraScript.spriteRenderer.sprite = backgroundSprites[1];
-        //}
+        if(!dialogue3 && !dialogue2 && !dialogue1)
+        {
+            //cameraScript.spriteRenderer.sprite = backgroundSprites[0];
+        }
 
-        //else
-        //{
-        //    cameraScript.spriteRenderer.sprite = backgroundSprites[0];
-        //}
     }
 
     public void LateUpdate()
@@ -132,32 +111,22 @@ public class GameManager : MonoBehaviour
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 60f, camSpeed);
 
-                //Vector3 targetPosition = cameraScript.lookAt2.transform.position;
-                //Vector3 currentPosition = cameraScript.lookAt.transform.position;
-
-                // Calculate the new position with a smooth transition
-                //Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime * transitionSpeed);
-
-                // Update the camera's position
-                //transform.position = newPosition;
-
-                // Player position
-                player.isEnding = true;
-
-                //player.StartFade();
-                //player.fading = true;
-
+            player.isEnding = true;
         }
 
+        
         if(dialogueZoom)
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 30f, camSpeed);
+
             backgroundAnim.SetBool("DialogueActive", true);
         }
+        
 
         else
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 20f, camSpeed);
+
             backgroundAnim.SetBool("DialogueActive", false);
         }
     }
@@ -171,18 +140,7 @@ public class GameManager : MonoBehaviour
         }
         */
 
-        if (dialogue1)
-        {
-            cameraScript.spriteRenderer.sprite = backgroundSprites[1];
-            //cameraScript.lookAt = cameraScript.lookAt3;
-        }
 
-        if (!dialogue1)
-        {
-            cameraScript.spriteRenderer.sprite = backgroundSprites[0];
-            //cameraScript.lookAt = cameraScript.lookAt;
-
-        }
     }
 
     public void finalZoom()

@@ -43,6 +43,12 @@ public class NewDialogue : MonoBehaviour
     [SerializeField]
     Button button;
 
+    public bool scene1;
+    public bool scene2;
+    public bool scene3;
+
+    public Animator anim;
+
     private void Start()
     {
         //animator = GetComponent<Animator>();
@@ -81,6 +87,28 @@ public class NewDialogue : MonoBehaviour
 
             GameManager.instance.noSpeedPlayer();
             GameManager.instance.player.isPaused = true;
+
+            if (scene1)
+            {
+                GameManager.instance.dialogue1 = true;
+                GameManager.instance.dialogue2 = false;
+                GameManager.instance.dialogue3 = false;
+
+            }
+
+            if (scene2)
+            {
+                GameManager.instance.dialogue1 = false;
+                GameManager.instance.dialogue2 = true;
+                GameManager.instance.dialogue3 = false;
+            }
+
+            if (scene3)
+            {
+                GameManager.instance.dialogue1 = false;
+                GameManager.instance.dialogue2 = false;
+                GameManager.instance.dialogue3 = true;
+            }
         }
     }
 
@@ -99,6 +127,21 @@ public class NewDialogue : MonoBehaviour
         {
             GameManager.instance.normalSpeedPlayer();
             GameManager.instance.player.isPaused = false;
+
+            if (scene1)
+            {
+                //GameManager.instance.dialogue1 = false;
+            }
+
+            if (scene2)
+            {
+                //GameManager.instance.dialogue2 = false;
+            }
+
+            if (scene3)
+            {
+                //GameManager.instance.dialogue3 = false;
+            }
         }
     }
 
@@ -115,6 +158,7 @@ public class NewDialogue : MonoBehaviour
             animator.SetBool("IsOpen", false); // Closes the dialogue box
             button.onClick.RemoveListener(StepButtonClick);
             Destroy(collider);
+            anim.SetTrigger("End");
         }
 
         if (step < speaker.Length)

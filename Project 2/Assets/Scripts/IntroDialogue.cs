@@ -11,25 +11,24 @@ public class IntroDialogue : MonoBehaviour
     public GameObject dialogueBox;
     public string[] lines;
     public float textSpeed;
-    public float invokeTime;
-    
+    public float delay;
+
     private int index;
-    float nextTypetime;
-    public float delay = 10f;
+    private float nextTypetime;
+    private bool dialogueStarted;
 
     void Start()
     {
         dialogueBox.gameObject.SetActive(false);
         textComponent.text = string.Empty;
-        Invoke("StartDialogue",invokeTime);
+        dialogueStarted = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextTypetime)
+        if (dialogueStarted && Time.time > nextTypetime)
         {
-            if(text.text == lines[index])
+            if (text.text == lines[index])
             {
                 NextLine();
                 nextTypetime = Time.time + delay;
@@ -40,13 +39,14 @@ public class IntroDialogue : MonoBehaviour
                 text.text = lines[index];
                 // nextTypetime = Time.time + delay;
             }
-        } 
+        }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
-        if(dialogueBox.gameObject.activeInHierarchy == false)
+        if (!dialogueStarted)
         {
+            dialogueStarted = true;
             dialogueBox.gameObject.SetActive(true);
             index = 0;
             StartCoroutine(TypeLine());
@@ -61,18 +61,26 @@ public class IntroDialogue : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
     }
-    
+
     void NextLine()
     {
-        if(index < lines.Length - 1)
+        if (index < lines.Length - 1)
         {
             index++;
             text.text = string.Empty;
             StartCoroutine(TypeLine());
-        } 
+        }
         else
         {
             dialogueBox.gameObject.SetActive(false);
-        } 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StartDialogue();
+        }
     }
 }
