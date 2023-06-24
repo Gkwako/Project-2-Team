@@ -55,6 +55,20 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (GameManager.instance.dialogue1)
+        {
+            Vector3 targetPosition = GameManager.instance.cameraScript.lookAt3.transform.position;
+            Vector3 currentPosition = GameManager.instance.cameraScript.lookAt.transform.position;
+
+            // Calculate the new position with a smooth transition
+            Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime * 0.15f);
+
+            // Update the camera's position
+            transform.position = newPosition;
+        }
+
+
+
         if (fading)
         {
             timer += Time.deltaTime;

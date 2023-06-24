@@ -12,7 +12,7 @@ public class BulletCanon : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("target");
+        player = GameObject.FindGameObjectWithTag("Player");
         SoundManager.PlaySound("Kanon");  
 
         Vector3 direction = player.transform.position - transform.position;
@@ -20,6 +20,8 @@ public class BulletCanon : MonoBehaviour
 
         // add gravity after some time
         Invoke("AddGravity", 2);
+
+        Destroy(gameObject, 10f);
     }
 
     void AddGravity() 

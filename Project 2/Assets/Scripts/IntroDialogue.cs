@@ -15,7 +15,7 @@ public class IntroDialogue : MonoBehaviour
     
     private int index;
     float nextTypetime;
-    float delay = 10f;
+    public float delay = 10f;
 
     void Start()
     {

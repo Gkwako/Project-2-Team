@@ -54,16 +54,75 @@ public class GameManager : MonoBehaviour
 
     public bool dialogueActive;
 
+    // Willem's schetsen
+    public Sprite[] backgroundSprites;
+    public bool dialogue1;
+    public Animator backgroundAnim;
+    public float fadeDuration = 1f; // The duration of the fade in seconds
+    public int currentSpriteIndex;
+    public float currentFadeTime;
+    public bool fadingOut;
+
 
     void Start()
     {
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        //currentSpriteIndex = 1;
+        fadingOut = false;
+        //UpdateSprite();
     }
 
     void Update()
     {
 
+        // Check if the sprite should be faded
+        if (dialogue1 && !fadingOut)
+        {
+            // Start fading out the current sprite
+            fadingOut = true;
+            currentFadeTime = fadeDuration;
+            //UpdateSprite();
+        }
+        else if (!dialogue1 && fadingOut)
+        {
+            // Start fading in the next sprite
+            fadingOut = false;
+            currentFadeTime = fadeDuration;
+            //UpdateSprite();
+            //currentSpriteIndex = (currentSpriteIndex + 1) % backgroundSprites.Length;
+        }
+
+        // Update the sprite opacity based on the fade progress
+        if (currentFadeTime > 0)
+        {
+            UpdateSprite();
+
+            float fadeProgress = 1f - (currentFadeTime / fadeDuration);
+            Color spriteColor = cameraScript.spriteRenderer.color;
+            spriteColor.a = fadingOut ? fadeProgress : 1f - fadeProgress;
+            cameraScript.spriteRenderer.color = spriteColor;
+            currentFadeTime -= Time.deltaTime;
+            //UpdateSprite();
+        }
+
+        if (currentFadeTime <= 0)
+        {
+            float fadeProgress = 1f - (currentFadeTime / fadeDuration);
+            Color spriteColor = cameraScript.spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            cameraScript.spriteRenderer.color = spriteColor;
+        }
+
+        //if (dialogue1)
+        //{
+        //    cameraScript.spriteRenderer.sprite = backgroundSprites[1];
+        //}
+
+        //else
+        //{
+        //    cameraScript.spriteRenderer.sprite = backgroundSprites[0];
+        //}
     }
 
     public void LateUpdate()
@@ -92,12 +151,37 @@ public class GameManager : MonoBehaviour
 
         if(dialogueZoom)
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 15f, camSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 30f, camSpeed);
+            backgroundAnim.SetBool("DialogueActive", true);
         }
 
         else
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 20f, camSpeed);
+            backgroundAnim.SetBool("DialogueActive", false);
+        }
+    }
+
+    private void UpdateSprite()
+    {
+        /*
+        if (backgroundSprites.Length > 0)
+        {
+            cameraScript.spriteRenderer.sprite = backgroundSprites[currentSpriteIndex];
+        }
+        */
+
+        if (dialogue1)
+        {
+            cameraScript.spriteRenderer.sprite = backgroundSprites[1];
+            //cameraScript.lookAt = cameraScript.lookAt3;
+        }
+
+        if (!dialogue1)
+        {
+            cameraScript.spriteRenderer.sprite = backgroundSprites[0];
+            //cameraScript.lookAt = cameraScript.lookAt;
+
         }
     }
 

@@ -61,6 +61,44 @@ public class NewDialogue : MonoBehaviour
 
             // step = 0;
             StepButtonClick();
+            GameManager.instance.noSpeedPlayer();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            //remove listener
+            //how to change assigned function in onclick via script
+
+
+            //add new listener
+            button.onClick.AddListener(OnClickNextStep);
+
+            // step = 0;
+            StepButtonClick();
+
+            GameManager.instance.noSpeedPlayer();
+            GameManager.instance.player.isPaused = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            GameManager.instance.noSpeedPlayer();
+            GameManager.instance.player.isPaused = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            GameManager.instance.normalSpeedPlayer();
+            GameManager.instance.player.isPaused = false;
         }
     }
 
@@ -68,6 +106,8 @@ public class NewDialogue : MonoBehaviour
     {
         if (step >= speaker.Length)
         {
+            GameManager.instance.dialogue1 = false;
+            GameManager.instance.player.isPaused = false;
             GameManager.instance.normalSpeedPlayer();
             GameManager.instance.dialogueZoom = false;
 
@@ -79,6 +119,8 @@ public class NewDialogue : MonoBehaviour
 
         if (step < speaker.Length)
         {
+            GameManager.instance.dialogue1 = true;
+            GameManager.instance.player.isPaused = true;
             GameManager.instance.noSpeedPlayer();
             GameManager.instance.dialogueZoom = true;
 
