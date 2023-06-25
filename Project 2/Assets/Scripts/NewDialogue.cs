@@ -87,6 +87,9 @@ public class NewDialogue : MonoBehaviour
             StepButtonClick();
             Debug.Log(" Enter ");
 
+            SoundManager.PlaySound("Trumpet1");
+
+
             Destroy(coll);
 
             GameManager.instance.noSpeedPlayer();
@@ -163,9 +166,10 @@ public class NewDialogue : MonoBehaviour
             button.onClick.RemoveListener(StepButtonClick);
             Destroy(collider);
             anim.SetTrigger("End");
-
+            
             GameManager.instance.normalSpeedPlayer();
             GameManager.instance.player.isPaused = false;
+
         }
 
         if (step < speaker.Length)
@@ -195,7 +199,7 @@ public class NewDialogue : MonoBehaviour
         }
     }
 
-    public void OnClickNextStep() // Called by an OnClick button in Unity
+    private void OnClickNextStep() // Called by an OnClick button in Unity
     {
         StepButtonClick();
     }

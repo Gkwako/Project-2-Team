@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 currentPosition = GameManager.instance.cameraScript.player.transform.position;
 
             // Calculate the new position with a smooth transition
-            Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, 0.001f);
+            Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime * 0.25f);
 
             // Update the camera's position
             transform.position = newPosition;
