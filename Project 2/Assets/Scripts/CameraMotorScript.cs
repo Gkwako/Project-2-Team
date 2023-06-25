@@ -19,10 +19,16 @@ public class CameraMotorScript : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public SpriteRenderer spriteRenderer2;
 
+    public float timer = 0f;      // Timer variable
+    public float interval = 92f;  // Interval in seconds (01.31 minutes)
+
     void Start()
     {
         //lookAt = GameObject.Find("Player").transform;
         cam = Camera.main;
+
+        timer = interval;
+
         SoundManager.PlaySound("BGsea");
 
         //GameObject childGO = new GameObject("CameraChild");
@@ -30,6 +36,22 @@ public class CameraMotorScript : MonoBehaviour
         //childObject.parent = transform;
         //childObject.localPosition = Vector3.zero;
         //spriteRenderer = childGO.AddComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
+        // Decrease the timer each frame
+        timer -= Time.deltaTime;
+
+        // Check if the timer has reached 0 or below
+        if (timer <= 0f)
+        {
+            // Play the sound clip
+            SoundManager.PlaySound("BGsea");
+
+            // Reset the timer
+            timer = interval;
+        }
     }
 
     void LateUpdate()

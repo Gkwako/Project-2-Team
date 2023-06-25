@@ -48,6 +48,7 @@ public class NewDialogue : MonoBehaviour
     public bool scene3;
 
     public Animator anim;
+    public BoxCollider2D coll;
 
     private void Start()
     {
@@ -66,7 +67,7 @@ public class NewDialogue : MonoBehaviour
             button.onClick.AddListener(OnClickNextStep);
 
             // step = 0;
-            StepButtonClick();
+            //StepButtonClick();
             GameManager.instance.noSpeedPlayer();
         }
     }
@@ -84,6 +85,9 @@ public class NewDialogue : MonoBehaviour
 
             // step = 0;
             StepButtonClick();
+            Debug.Log(" Enter ");
+
+            Destroy(coll);
 
             GameManager.instance.noSpeedPlayer();
             GameManager.instance.player.isPaused = true;
@@ -159,10 +163,16 @@ public class NewDialogue : MonoBehaviour
             button.onClick.RemoveListener(StepButtonClick);
             Destroy(collider);
             anim.SetTrigger("End");
+
+            GameManager.instance.normalSpeedPlayer();
+            GameManager.instance.player.isPaused = false;
         }
 
         if (step < speaker.Length)
         {
+            GameManager.instance.noSpeedPlayer();
+            GameManager.instance.player.isPaused = true;
+
             GameManager.instance.dialogue1 = true;
             GameManager.instance.player.isPaused = true;
             GameManager.instance.noSpeedPlayer();

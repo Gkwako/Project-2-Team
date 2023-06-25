@@ -43,6 +43,7 @@ public class BottleScript : MonoBehaviour
         activateDialogueBox = true;
         dialogueBox.gameObject.SetActive(true);
         Debug.Log("opent");
+        SoundManager.PlaySound("Paper");
         StartCoroutine(CloserDialogue());
 
         GameManager.instance.dialogueActive = true;
@@ -55,6 +56,7 @@ public class BottleScript : MonoBehaviour
 		  yield return new WaitForSeconds(5);
 	      //dialogueBox.gameObject.SetActive(false);
 		  Debug.Log("closed");
+            SoundManager.PlaySound("Paper");
             //anim2.SetTrigger("Disactivate");
 
 

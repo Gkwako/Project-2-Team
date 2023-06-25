@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
 
         if (carpetZoom)
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 60f, camSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 65f, camSpeed);
 
             player.isEnding = true;
         }
@@ -117,9 +117,12 @@ public class GameManager : MonoBehaviour
         
         if(dialogueZoom)
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 30f, camSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 40f, camSpeed);
 
             backgroundAnim.SetBool("DialogueActive", true);
+
+            GameManager.instance.noSpeedPlayer();
+            GameManager.instance.player.isPaused = true;
         }
         
 

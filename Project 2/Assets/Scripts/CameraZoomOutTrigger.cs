@@ -22,6 +22,11 @@ public class CameraZoomOutTrigger : MonoBehaviour
     public Animator anim14;
     public Animator anim15;
 
+    public float timer = 0f;      // Timer variable
+    public float interval = 7.5f;  // Interval in seconds (01.31 minutes)
+
+    public bool runMusic;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +37,21 @@ public class CameraZoomOutTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (runMusic)
+        {
+            // Decrease the timer each frame
+            timer -= Time.deltaTime;
+
+            // Check if the timer has reached 0 or below
+            if (timer <= 0f)
+            {
+                // Play the sound clip
+                SoundManager.PlaySound("Cello");
+
+                // Reset the timer
+                timer = interval;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +60,9 @@ public class CameraZoomOutTrigger : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             GameManager.instance.finalFade();
+
+            SoundManager.PlaySound("Cello");
+            runMusic = true;
 
             anim1.SetTrigger("Ending");
             anim2.SetTrigger("Ending");

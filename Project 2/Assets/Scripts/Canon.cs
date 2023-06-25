@@ -8,6 +8,8 @@ public class Canon : MonoBehaviour
     public Transform bulletPos;
 
     private float timer;
+    public float shootTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class Canon : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > 4)
+        if(timer > shootTime)
         {
             timer = 0;
             shoot();

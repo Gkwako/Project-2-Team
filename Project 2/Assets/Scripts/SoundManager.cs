@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip backgroundSound, fireSound;
+    public static AudioClip backgroundSound, fireSound, screamSound, drumSound, celloSound, windSound, paperSound;
     static AudioSource audioSrc;
 
     // Start is called before the first frame update
@@ -12,7 +12,13 @@ public class SoundManager : MonoBehaviour
     {
         backgroundSound = Resources.Load<AudioClip>("BGsea");
         fireSound = Resources.Load<AudioClip>("Kanon");
-        
+        screamSound = Resources.Load<AudioClip>("Scream");
+        drumSound = Resources.Load<AudioClip>("Drum");
+        celloSound = Resources.Load<AudioClip>("Cello");
+        windSound = Resources.Load<AudioClip>("Wind");
+        paperSound = Resources.Load<AudioClip>("Paper");
+
+
         audioSrc = GetComponent<AudioSource> ();
     }
 
@@ -33,6 +39,36 @@ public class SoundManager : MonoBehaviour
         case "Kanon":
             audioSrc.PlayOneShot (fireSound);
             break;
+        }
+        switch (clip)
+        {
+            case "BattleCry":
+                audioSrc.PlayOneShot(screamSound);
+                break;
+        }
+        switch (clip)
+        {
+            case "WarDrums":
+                audioSrc.PlayOneShot(drumSound);
+                break;
+        }
+        switch (clip)
+        {
+            case "Cello":
+                audioSrc.PlayOneShot(celloSound);
+                break;
+        }
+        switch (clip)
+        {
+            case "Wind":
+                audioSrc.PlayOneShot(windSound);
+                break;
+        }
+        switch (clip)
+        {
+            case "Paper":
+                audioSrc.PlayOneShot(paperSound);
+                break;
         }
     }
 }
