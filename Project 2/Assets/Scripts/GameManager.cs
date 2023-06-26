@@ -68,6 +68,18 @@ public class GameManager : MonoBehaviour
     public float currentFadeTime;
     public bool fadingOut;
 
+    public float carpetTimer;
+
+    //
+
+    public float startValue = 20f;
+    public float endValue = 0f;
+    public float transitionDuration = 4f; // The duration of the transition in seconds
+
+    public float currentValue;
+    public float transitionTimer;
+    public bool finalEnding;
+
 
     void Start()
     {
@@ -77,6 +89,9 @@ public class GameManager : MonoBehaviour
         //currentSpriteIndex = 1;
         fadingOut = false;
         //UpdateSprite();
+
+        transitionTimer = 0f;
+        currentValue = startValue;
     }
 
     void Update()
@@ -102,6 +117,30 @@ public class GameManager : MonoBehaviour
             //cameraScript.spriteRenderer.sprite = backgroundSprites[0];
         }
 
+        if(finalEnding == true)
+        {
+            transitionTimer += Time.deltaTime;
+
+            // Calculate the interpolation value between 0 and 1 based on the elapsed time and transition duration
+            float t = Mathf.Clamp01(transitionTimer / transitionDuration);
+
+            // Use Mathf.Lerp to smoothly transition the float value
+            currentValue = Mathf.Lerp(20, 0, t);
+
+            cameraScript.boundY = currentValue;
+
+            // Print the current value to the console (you can replace this with your desired logic)
+            //Debug.Log(currentValue);
+
+            // Check if the transition is complete
+            if (t >= 1f)
+            {
+                // Transition is finished, you can perform any desired actions here
+                //cameraScript.boundY = 0f;
+            }
+        }
+
+
     }
 
     public void LateUpdate()
@@ -109,9 +148,19 @@ public class GameManager : MonoBehaviour
 
         if (carpetZoom)
         {
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 65f, Time.deltaTime * 0.25f);
 
             player.isEnding = true;
+
+            // Decrease the timer each frame
+            carpetTimer -= Time.deltaTime;
+
+            // Check if the timer has reached 0 or below
+            if (carpetTimer <= 0f)
+            {
+                // Play the sound clip
+                cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 180f, (Time.deltaTime * 0.5f) * 0.5f);
+
+            }
         }
 
         
@@ -155,6 +204,7 @@ public class GameManager : MonoBehaviour
     public void finalFade()
     {
         player.fading = true;
+        finalEnding = true;
     }
 
     // PLAYER SPEED ADJUSTMENT FUNCTIONS
