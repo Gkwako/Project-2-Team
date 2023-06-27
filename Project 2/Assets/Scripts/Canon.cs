@@ -21,7 +21,7 @@ public class Canon : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > shootTime)
+        if(timer > shootTime && GameManager.instance.canHearCannons == true)
         {
             timer = 0;
             shoot();

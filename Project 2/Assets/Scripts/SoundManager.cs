@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip backgroundSound, fireSound, screamSound, drumSound, celloSound, windSound, paperSound, paperSound2, trumpet1, trumpet2;
+    public static AudioClip backgroundSound, fireSound, screamSound, drumSound, celloSound, windSound, paperSound, paperSound2, trumpet1, trumpet2, fire;
     static AudioSource audioSrc;
 
     // Start is called before the first frame update
@@ -13,13 +13,15 @@ public class SoundManager : MonoBehaviour
         backgroundSound = Resources.Load<AudioClip>("BGsea");
         fireSound = Resources.Load<AudioClip>("Kanon");
         screamSound = Resources.Load<AudioClip>("BattleCry2");
-        drumSound = Resources.Load<AudioClip>("WarDrums2");
+        drumSound = Resources.Load<AudioClip>("Drum1");
         celloSound = Resources.Load<AudioClip>("Cello2.1");
-        windSound = Resources.Load<AudioClip>("Wind");
+        windSound = Resources.Load<AudioClip>("Wind1");
         paperSound = Resources.Load<AudioClip>("Paper");
         paperSound2 = Resources.Load<AudioClip>("Paper2");
         trumpet1 = Resources.Load<AudioClip>("Trumpet1.1");
         trumpet2 = Resources.Load<AudioClip>("Trumpet2.1");
+        fire = Resources.Load<AudioClip>("Fire1");
+
 
 
         audioSrc = GetComponent<AudioSource> ();
@@ -89,6 +91,12 @@ public class SoundManager : MonoBehaviour
         {
             case "Trumpet2":
                 audioSrc.PlayOneShot(trumpet2);
+                break;
+        }
+        switch (clip)
+        {
+            case "Fire":
+                audioSrc.PlayOneShot(fire);
                 break;
         }
     }

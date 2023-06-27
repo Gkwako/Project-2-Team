@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
     public float transitionTimer;
     public bool finalEnding;
 
+    public bool canHearCannons;
+
 
     void Start()
     {
@@ -96,6 +98,21 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+
+        if (carpetZoom)
+        {
+
+            player.isEnding = true;
+
+            carpetTimer -= Time.deltaTime;
+
+            if (carpetTimer <= 0f)
+            {
+                float zoomSpeed = 0.15f;
+                cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 52f, Time.deltaTime * zoomSpeed);
+
+            }
+        }
 
         if (dialogue1 && !dialogue2 && !dialogue3)
         {
@@ -146,22 +163,7 @@ public class GameManager : MonoBehaviour
     public void LateUpdate()
     {
 
-        if (carpetZoom)
-        {
 
-            player.isEnding = true;
-
-            // Decrease the timer each frame
-            carpetTimer -= Time.deltaTime;
-
-            // Check if the timer has reached 0 or below
-            if (carpetTimer <= 0f)
-            {
-                // Play the sound clip
-                cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 180f, (Time.deltaTime * 0.5f) * 0.5f);
-
-            }
-        }
 
         
         if(dialogueZoom)
@@ -175,7 +177,7 @@ public class GameManager : MonoBehaviour
         }
         
 
-        else
+        if (!dialogueZoom && !carpetZoom)
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 20f, Time.deltaTime * camSpeed);
 

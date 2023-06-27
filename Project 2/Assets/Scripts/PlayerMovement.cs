@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public bool fading = false;
     private bool fadeComplete = false;
 
+    public Rigidbody2D rigid;
+
 
     void Start()
     {
@@ -46,14 +48,14 @@ public class PlayerMovement : MonoBehaviour
             Vector3 currentPosition = GameManager.instance.cameraScript.player.transform.position;
 
             // Calculate the new position with a smooth transition
-            Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, (Time.deltaTime * 0.5f));
+            Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, (Time.deltaTime * 0.1f));
 
             // Update the camera's position
             transform.position = newPosition;
 
             if(transform.position == newPosition)
             {
-                GameManager.instance.noSpeedPlayer();
+                //GameManager.instance.noSpeedPlayer();
             }
         }
 
