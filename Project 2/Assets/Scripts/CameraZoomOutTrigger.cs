@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraZoomOutTrigger : MonoBehaviour
 {
@@ -25,13 +26,13 @@ public class CameraZoomOutTrigger : MonoBehaviour
     public float timer = 0f;      // Timer variable
     public float interval = 7.5f;  // Interval in seconds (01.31 minutes)
 
+
     public bool runMusic;
 
-
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
@@ -94,4 +95,5 @@ public class CameraZoomOutTrigger : MonoBehaviour
         }
 
     }
+   
 }
