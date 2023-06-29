@@ -374,7 +374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 105.9805}
+  m_AnchoredPosition: {x: 16, y: 15}
   m_SizeDelta: {x: 679.32, y: 51.333008}
   m_Pivot: {x: 0.50990725, y: 0.5}
 --- !u!114 &561422208
@@ -796,7 +796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: -33}
+  m_AnchoredPosition: {x: 16, y: -123.98047}
   m_SizeDelta: {x: 679.32, y: 227.2941}
   m_Pivot: {x: 0.50990725, y: 0.5}
 --- !u!114 &2080737400
@@ -819,14 +819,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dit spel is gebaseerd op historische bronnen, maar we kunnen geen garantie
-    geven dat de gebeurtenissen zoals deze in de bronnen staan precies zo zijn verlopen.
-    \n\nDe gesprekken in dit spel zijn gebaseerd op het verslag over de Slag bij
-    Solebay, maar zij dienen niet als weergave van de werkelijkheid genomen te worden.
-    \n\nHet Scheepvaartmuseum alsmede de betrokken leveranciers van informatie kunnen
-    niet aansprakelijk worden gesteld voor eventuele schade die voortvloeit uit onjuistheden,
-    technische problemen, problemen veroorzaakt door het verspreiden van informatie
-    via internet, of technische storingen."
+  m_text: 'De gesprekken in dit spel zijn geschreven aan de hand van verslagen over
+    de slag bij Solebay, maar dit moet niet als een representatie van de werkelijkheid
+    worden beschouwd.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b246c4190f4e46ec9352fe15a7b09ce0, type: 2}
