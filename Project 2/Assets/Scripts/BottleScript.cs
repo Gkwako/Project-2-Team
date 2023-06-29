@@ -53,15 +53,15 @@ public class BottleScript : MonoBehaviour
     IEnumerator CloserDialogue(){
 		if(activateDialogueBox)
         {
-		  yield return new WaitForSeconds(5);
+		  yield return new WaitForSeconds(7);
 	      //dialogueBox.gameObject.SetActive(false);
 		  Debug.Log("closed");
-            SoundManager.PlaySound("Paper2");
             //anim2.SetTrigger("Disactivate");
 
 
             GameManager.instance.dialogueActive = false;
           GameManager.instance.normalSpeedPlayer();
+            SoundManager.PlaySound("Paper2");
 
         }
     }

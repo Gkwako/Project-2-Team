@@ -22,5 +22,10 @@ public class RestartGame : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    
+    public void ButtonClick()
+    {
+        Debug.Log("ButtonClick");
+    }
+
+
 }

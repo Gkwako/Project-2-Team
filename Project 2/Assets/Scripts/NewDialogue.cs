@@ -90,7 +90,7 @@ public class NewDialogue : MonoBehaviour
             SoundManager.PlaySound("Trumpet1");
 
 
-            Destroy(coll);
+            //Destroy(coll);
 
             GameManager.instance.noSpeedPlayer();
             GameManager.instance.player.isPaused = true;
@@ -100,6 +100,8 @@ public class NewDialogue : MonoBehaviour
                 GameManager.instance.dialogue1 = true;
                 GameManager.instance.dialogue2 = false;
                 GameManager.instance.dialogue3 = false;
+                GameManager.instance.player.isPaused = true;
+
 
             }
 
@@ -108,6 +110,8 @@ public class NewDialogue : MonoBehaviour
                 GameManager.instance.dialogue1 = false;
                 GameManager.instance.dialogue2 = true;
                 GameManager.instance.dialogue3 = false;
+                GameManager.instance.player.isPaused = true;
+
             }
 
             if (scene3)
@@ -115,6 +119,8 @@ public class NewDialogue : MonoBehaviour
                 GameManager.instance.dialogue1 = false;
                 GameManager.instance.dialogue2 = false;
                 GameManager.instance.dialogue3 = true;
+                GameManager.instance.player.isPaused = true;
+
             }
         }
     }
@@ -132,8 +138,8 @@ public class NewDialogue : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.normalSpeedPlayer();
-            GameManager.instance.player.isPaused = false;
+            //GameManager.instance.normalSpeedPlayer();
+            //GameManager.instance.player.isPaused = false;
 
             if (scene1)
             {
@@ -167,8 +173,8 @@ public class NewDialogue : MonoBehaviour
             Destroy(collider);
             anim.SetTrigger("End");
             
-            GameManager.instance.normalSpeedPlayer();
-            GameManager.instance.player.isPaused = false;
+            //GameManager.instance.normalSpeedPlayer();
+            //GameManager.instance.player.isPaused = false;
 
         }
 
@@ -202,6 +208,8 @@ public class NewDialogue : MonoBehaviour
     private void OnClickNextStep() // Called by an OnClick button in Unity
     {
         StepButtonClick();
+        GameManager.instance.player.isPaused = true;
+        GameManager.instance.noSpeedPlayer();
     }
 }
 

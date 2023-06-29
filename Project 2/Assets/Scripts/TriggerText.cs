@@ -27,7 +27,9 @@ public class TriggerText : MonoBehaviour
 
         if (displayActive)
         {
-            GameManager.instance.player.isPaused = true;
+            //GameManager.instance.player.isPaused = true;
+            GameManager.instance.slowSpeedPlayer();
+
 
             timer += Time.deltaTime;
 

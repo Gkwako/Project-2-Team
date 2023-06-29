@@ -163,9 +163,6 @@ public class GameManager : MonoBehaviour
     public void LateUpdate()
     {
 
-
-
-        
         if(dialogueZoom)
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 40f, Time.deltaTime * camSpeed);
@@ -214,6 +211,12 @@ public class GameManager : MonoBehaviour
     public void slowSpeedPlayer()
     {
         player.speed = 0.5f;
+        //Debug.Log("Slow speed player");
+    }
+
+    public void dragSpeedPlayer()
+    {
+        player.speed = 2.5f;
         //Debug.Log("Slow speed player");
     }
 

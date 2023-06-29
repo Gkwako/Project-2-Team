@@ -26,6 +26,12 @@ public class CameraZoomOutTrigger : MonoBehaviour
     public float timer = 0f;      // Timer variable
     public float interval = 7.5f;  // Interval in seconds (01.31 minutes)
 
+    public GameObject destroyObject1;
+    public GameObject destroyObject2;
+    public GameObject destroyObject3;
+    public GameObject destroyObject4;
+
+
 
     public bool runMusic;
 
@@ -92,6 +98,12 @@ public class CameraZoomOutTrigger : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             GameManager.instance.finalZoom();
+            Destroy(destroyObject1);
+            Destroy(destroyObject2);
+            Destroy(destroyObject3);
+            Destroy(destroyObject4);
+
+
         }
 
     }

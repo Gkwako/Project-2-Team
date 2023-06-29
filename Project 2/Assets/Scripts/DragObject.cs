@@ -36,18 +36,21 @@ public class DragObject : MonoBehaviour
             selectedObject = null; // Reset the selected object when the mouse button is released
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GameManager.instance.player.isPaused == false)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-
-            isDragging = true;
 
             // Check if the mouse hits the draggable object
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 offset = mousePosition - transform.position;
                 selectedObject = gameObject; // Set the selected object to the current object
+            }
+
+            if (Input.GetMouseButtonDown(0) && selectedObject == gameObject)
+            {
+                isDragging = true;
             }
         }
 
@@ -63,6 +66,9 @@ public class DragObject : MonoBehaviour
             float currentFollowSpeed = targetY > transform.position.y ? followSpeedUp : followSpeedDown;
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, currentFollowSpeed * Time.deltaTime);
+
+            GameManager.instance.dragSpeedPlayer();
+
         }
 
 
