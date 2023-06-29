@@ -5355,7 +5355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Herstart
+  m_text: Terug naar start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 323655aaba2404a56be9f9341d5813e3, type: 2}
   m_sharedMaterial: {fileID: 5097511794437705852, guid: 323655aaba2404a56be9f9341d5813e3, type: 2}
