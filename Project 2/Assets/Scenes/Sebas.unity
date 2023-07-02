@@ -643,6 +643,8 @@ MonoBehaviour:
   position1: {fileID: 0}
   position2: {fileID: 0}
   animator: {fileID: 0}
+  step: 0
+  currentIndex: 0
   collider: {fileID: 64050908}
   button: {fileID: 0}
   scene1: 0
@@ -10994,7 +10996,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871403334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -994.8, y: -1.4, z: 0}
+  m_LocalPosition: {x: -990.1, y: -1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11018,7 +11020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  pauseSpeed: 0.5
+  pauseSpeed: 0
   isPaused: 0
   isEnding: 0
   spriteRenderer: {fileID: 1858514101}
@@ -13205,6 +13207,8 @@ MonoBehaviour:
   position1: {fileID: 1999288246}
   position2: {fileID: 85005088}
   animator: {fileID: 1476755499}
+  step: 0
+  currentIndex: 0
   collider: {fileID: 1021041998}
   button: {fileID: 458043371}
   scene1: 0
@@ -13629,7 +13633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073988069}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -774.2, y: -55.1, z: 0}
+  m_LocalPosition: {x: -753, y: -55.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14748,6 +14752,8 @@ MonoBehaviour:
   position1: {fileID: 1999288246}
   position2: {fileID: 85005088}
   animator: {fileID: 1476755499}
+  step: 0
+  currentIndex: 0
   collider: {fileID: 1165601650}
   button: {fileID: 458043371}
   scene1: 0
@@ -19789,8 +19795,8 @@ MonoBehaviour:
   dialogueBox: {fileID: 1522320516}
   lines:
   - 
-  - "Michiel de Ruyter was tijdens deze zeeslag admiraal van de Nederlandse vloot
-    en zat aan boord van de boot: De Zeven provinci\xEBn."
+  - 'Michiel de Ruyter was tijdens deze zeeslag admiraal van de Nederlandse vloot
+    en zat aan boord van de boot: De Zeven provincies.'
   - 'Van de Velde en zoon voeren in een Galjoot mee met het gevecht als oorlogsjournalisten. '
   - 'Terwijl ze in de kuip zaten, schetste de Oude op een rol aan elkaar geplakte
     vellen papier het gevecht. '
@@ -24806,6 +24812,8 @@ MonoBehaviour:
   position1: {fileID: 1999288246}
   position2: {fileID: 85005088}
   animator: {fileID: 1476755499}
+  step: 0
+  currentIndex: 0
   collider: {fileID: 1912308075}
   button: {fileID: 458043371}
   scene1: 1

@@ -14,7 +14,7 @@ public class BGWaves : MonoBehaviour
 
         if(collision.gameObject.name == "Player" && GameManager.instance.player.isPaused == true)
         {
-            GameManager.instance.slowSpeedPlayer();
+            GameManager.instance.noSpeedPlayer();
         }
 
     }
@@ -29,7 +29,7 @@ public class BGWaves : MonoBehaviour
 
         if (collision.gameObject.name == "Player" && GameManager.instance.player.isPaused == true)
         {
-            GameManager.instance.slowSpeedPlayer();
+            GameManager.instance.noSpeedPlayer();
         }
 
     }

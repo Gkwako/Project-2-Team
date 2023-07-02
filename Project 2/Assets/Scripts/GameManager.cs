@@ -117,16 +117,22 @@ public class GameManager : MonoBehaviour
         if (dialogue1 && !dialogue2 && !dialogue3)
         {
             cameraScript.spriteRenderer.sprite = backgroundSprites[1];
+            GameManager.instance.noSpeedPlayer();
+            GameManager.instance.player.isPaused = true;
         }
 
         if (dialogue2 && !dialogue1 && !dialogue3)
         {
             cameraScript.spriteRenderer.sprite = backgroundSprites[2];
+            GameManager.instance.noSpeedPlayer();
+            GameManager.instance.player.isPaused = true;
         }
 
         if (dialogue3 && !dialogue2 && !dialogue1)
         {
             cameraScript.spriteRenderer.sprite = backgroundSprites[3];
+            GameManager.instance.noSpeedPlayer();
+            GameManager.instance.player.isPaused = true;
         }
 
         if(!dialogue3 && !dialogue2 && !dialogue1)

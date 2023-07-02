@@ -35,8 +35,8 @@ public class NewDialogue : MonoBehaviour
 
     public Animator animator; // Animator for the DialogueBox
 
-    private int step;
-    private int currentIndex;
+    public int step;
+    public int currentIndex;
 
     public Collider2D collider;
 
@@ -55,22 +55,22 @@ public class NewDialogue : MonoBehaviour
         //animator = GetComponent<Animator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+        //if (collision.gameObject.tag == "Player")
+        //{
             //remove listener
             //how to change assigned function in onclick via script
             
 
             //add new listener
-            button.onClick.AddListener(OnClickNextStep);
+           // button.onClick.AddListener(OnClickNextStep);
 
             // step = 0;
             //StepButtonClick();
-            GameManager.instance.noSpeedPlayer();
-        }
-    }
+          //  GameManager.instance.noSpeedPlayer();
+        //}
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -79,6 +79,7 @@ public class NewDialogue : MonoBehaviour
             //remove listener
             //how to change assigned function in onclick via script
 
+            step = 0;
 
             //add new listener
             button.onClick.AddListener(OnClickNextStep);
@@ -141,6 +142,7 @@ public class NewDialogue : MonoBehaviour
             //GameManager.instance.normalSpeedPlayer();
             //GameManager.instance.player.isPaused = false;
 
+
             if (scene1)
             {
                 //GameManager.instance.dialogue1 = false;
@@ -162,7 +164,7 @@ public class NewDialogue : MonoBehaviour
     {
         if (step >= speaker.Length)
         {
-            GameManager.instance.dialogue1 = false;
+            //GameManager.instance.dialogue1 = false;
             GameManager.instance.player.isPaused = false;
             GameManager.instance.normalSpeedPlayer();
             GameManager.instance.dialogueZoom = false;
@@ -170,20 +172,43 @@ public class NewDialogue : MonoBehaviour
             //step = 0;
             animator.SetBool("IsOpen", false); // Closes the dialogue box
             button.onClick.RemoveListener(StepButtonClick);
-            Destroy(collider);
+            //Destroy(collider);
             anim.SetTrigger("End");
-            
+            step++;
+
             //GameManager.instance.normalSpeedPlayer();
             //GameManager.instance.player.isPaused = false;
 
         }
 
+        if (step > speaker.Length)
+        {
+
+            Destroy(collider);
+
+            if (scene1)
+            {
+                GameManager.instance.dialogue1 = false;
+            }
+
+            if (scene2)
+            {
+                GameManager.instance.dialogue2 = false;
+            }
+
+            if (scene3)
+            {
+                GameManager.instance.dialogue3 = false;
+            }
+
+        }
+
         if (step < speaker.Length)
         {
-            GameManager.instance.noSpeedPlayer();
-            GameManager.instance.player.isPaused = true;
+            //GameManager.instance.noSpeedPlayer();
+            //GameManager.instance.player.isPaused = true;
 
-            GameManager.instance.dialogue1 = true;
+            //GameManager.instance.dialogue1 = true;
             GameManager.instance.player.isPaused = true;
             GameManager.instance.noSpeedPlayer();
             GameManager.instance.dialogueZoom = true;
